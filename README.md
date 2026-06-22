@@ -81,27 +81,17 @@ library_management/
 ### Tablolar ve İlişkiler
 
 ```
-books                           members
-──────────────────────          ──────────────────────
-id          (PK)                id          (PK)
-isbn        (UNIQUE)            name
-title                           email       (UNIQUE)
-author                          phone
-genre                           address
-year                            joined_at
-copies                          is_active
+books                           members                           borrow_records
+──────────────────────          ──────────────────────            ──────────────────────────────
+id          (PK)                id          (PK)                  id          (PK)
+isbn        (UNIQUE)            name                              book_id     (FK → books.id)
+title                           email       (UNIQUE)              member_id   (FK → members.id)
+author                          phone                             borrow_date
+genre                           address                           due_date
+year                            joined_at                         return_date
+copies                          is_active                         status      ('borrowed'|'returned'|'overdue')
 available
-created_at
 
-            borrow_records
-            ──────────────────────────────
-            id          (PK)
-            book_id     (FK → books.id)
-            member_id   (FK → members.id)
-            borrow_date
-            due_date
-            return_date
-            status      ('borrowed'|'returned'|'overdue')
 ```
 
 **İlişkiler:**
@@ -225,5 +215,3 @@ python -m unittest tests/test_kutuphane.py -v
 Veritabanı Uygulaması Projesi kapsamında geliştirilmiştir.
 
 ---
-
-*Son güncelleme: 2025*
