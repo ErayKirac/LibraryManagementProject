@@ -209,9 +209,3 @@ python -m unittest tests/test_kutuphane.py -v
 | Git & GitHub | Sürüm kontrolü |
 
 ---
-
-## 👨‍💻 Geliştirici
-
-Veritabanı Uygulaması Projesi kapsamında geliştirilmiştir.
-
----
